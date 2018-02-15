@@ -8,11 +8,13 @@ $(document).ready(function() {
       url : myurl,
   	  dataType : "json",
   	  success : function(json) {
+        console.log(json)
         json = json;//"
   		  var results = "";
-        results += '<h2>Sunrise: ' + json.results.sunrise + '</h2>';
-        results += '<h2>Sunset: ' + json.results.sunset + '</h2>';
+        results += '<h2>*Sunrise: ' + json.results.sunrise + '</h2>';
+        results += '<h2>*Sunset: ' + json.results.sunset + '</h2>';
         results += '<h2>Length of day: ' + json.results.day_length + '</h2>';
+        results += '<h4>*Note that times are in UTC</h4>';
         $("#SunriseResults").html(results);
       }
     });
