@@ -1,3 +1,13 @@
+p a {
+    color:purple;
+    /*padding: 14px 16px;*/
+    text-decoration: none;
+}
+
+.controls {
+  display: inline-block;
+  text-align: center;
+}
 body {
   background-color:#569D68;
 }
@@ -149,10 +159,5 @@ textarea {
 .button {
   /* To position the buttons to the same position of the text fields */
   text-align: center;
-}
-
-button {
-  /* This extra margin represent roughly the same space as the space
-     between the labels and their text fields */
-  margin-left: .5em;
+  padding:3px;
 }

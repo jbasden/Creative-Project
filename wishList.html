@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <!--<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+ <link rel="stylesheet" href="./index.css"/>-->
+ <link rel="stylesheet" href="index.css">
+ <head>
+  <title>Josh's Creative Project</title>
+ </head>
+ <body class="background">
+  <h1>About US</h1>
+  <ul>
+   <li><a href="./index.html">Home</a></li>
+   <li><a href="./sun.html">Sunrise/Sunset info</a></li>
+   <li><a href="./about.html">About Us</a></li>
+   <li><a href="./adventures.html">Our Adventures</a></li>
+   <li><a href="./wishList.html">My Wish List</a></li>
+   <li><a href="./feedback.html">Feedback</a></li>
+  </ul>
+  <p>This page is a place for you to make some notes to yourself to <br> record which parks you would most like to visit.</p>
+  <div id="app">
+    <p>Click <a v-on:click="InitParks()">here</a> to begin with a list of parks found on this website, or enter a park that you would like to visit below.</p>
+    <p v-show="activeparks.length == 0">Add a park below.</p>
+    <form v-on:submit.prevent="addItem">
+      <input type="text" v-model="message">
+      <button type="submit">Add</button>
+    </form>
+    <br>
+    <div class="controls" v-if="filteredparks.length !== 0">
+      <button v-on:click="showAll()">Show All</button>
+      <button v-on:click="showActive()">Show Active</button>
+      <button v-on:click="showCompleted()">Show Completed</button>
+      <button v-on:click="deleteCompleted()">Delete Completed</button>
+    </div>
+    <br><br>
+    <ul>
+      <li v-for="item in filteredparks" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
+        <!--<li v-for="item in filteredparks">
+        <input type="checkbox" v-model="item.completed" v-on:click="completeItem(item)" /><label v-bind:class="{ completed: item.completed }">{{ item.text }}</label>
+        <label>{{ item.text }}</label>-->
+        <input type="checkbox" v-model="item.completed" v-on:click="completeItem(item)"/><label v-bind:class="{ completed: item.completed }">{{ item.text }} Rating:    fdsfdsfsdfs     {{ item.rating }}</label><button v-on:click="deleteItem(item)" class="delete">X</button><br></li>
+      </ul>
+    </div>
+    <br><br>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/wscript.js"></script>
+  </body>
+  <p><a class="footer" href="https://github.com/jbasden/Creative-Project.git">GitHub Repository</a></p>
+</html>
