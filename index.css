@@ -1,3 +1,13 @@
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+p.rate {
+  color:black;
+  text-align: left;
+}
+
 p a {
     color:purple;
     /*padding: 14px 16px;*/
@@ -132,19 +142,13 @@ label {
 }
 
 input, textarea {
-  /* To make sure that all text fields have the same font settings
-     By default, textareas have a monospace font */
   font: 1em sans-serif;
-  /* To give the same size to all text fields */
-  width: 300px;
+  /*width: 300px;*/
   box-sizing: border-box;
-
-  /* To harmonize the look & feel of text field border */
   border: 1px solid #999;
 }
 
 input:focus, textarea:focus {
-  /* To give a little highlight on active elements */input
   border-color: #000;
 }
 

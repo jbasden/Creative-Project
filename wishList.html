@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
- <!--<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
- <link rel="stylesheet" href="./index.css"/>-->
- <link rel="stylesheet" href="index.css">
+ <!--<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">-->
+ <link rel="stylesheet" href="./index.css"/>
+ <!--<link rel="stylesheet" href="index.css">-->
  <head>
   <title>Josh's Creative Project</title>
  </head>
@@ -19,7 +19,7 @@
   <p>This page is a place for you to make some notes to yourself to <br> record which parks you would most like to visit.</p>
   <div id="app">
     <p>Click <a v-on:click="InitParks()">here</a> to begin with a list of parks found on this website, or enter a park that you would like to visit below.</p>
-    <p v-show="activeparks.length == 0">Add a park below.</p>
+    <p v-show="filteredparks.length == 0">Add a park below.</p>
     <form v-on:submit.prevent="addItem">
       <input type="text" v-model="message">
       <button type="submit">Add</button>
@@ -27,19 +27,28 @@
     <br>
     <div class="controls" v-if="filteredparks.length !== 0">
       <button v-on:click="showAll()">Show All</button>
-      <button v-on:click="showActive()">Show Active</button>
-      <button v-on:click="showCompleted()">Show Completed</button>
-      <button v-on:click="deleteCompleted()">Delete Completed</button>
+      <button v-on:click="showFives()">Show 5-star parks</button>
+      <button v-on:click="showFours()">Show 4-star parks</button>
+      <button v-on:click="showThrees()">Show 3-star parks</button>
+      <button v-on:click="showTwos()">Show 2-star parks</button>
+      <button v-on:click="showOnes()">Show 1-star parks</button>
     </div>
-    <br><br>
+    <br><br><br>
     <ul>
-      <li v-for="item in filteredparks" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
+      <div v-for="item in filteredparks" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
         <!--<li v-for="item in filteredparks">
         <input type="checkbox" v-model="item.completed" v-on:click="completeItem(item)" /><label v-bind:class="{ completed: item.completed }">{{ item.text }}</label>
         <label>{{ item.text }}</label>-->
-        <input type="checkbox" v-model="item.completed" v-on:click="completeItem(item)"/><label v-bind:class="{ completed: item.completed }">{{ item.text }} Rating:    fdsfdsfsdfs     {{ item.rating }}</label><button v-on:click="deleteItem(item)" class="delete">X</button><br></li>
-      </ul>
-    </div>
+        <span class='rate'>1</span><input type="checkbox" v-model="item.one" v-on:click="CheckOne(item)"/>
+        <span class='rate'>2</span><input type="checkbox" v-model="item.two" v-on:click="CheckTwo(item)"/>
+        <span class='rate'>3</span><input type="checkbox" v-model="item.three" v-on:click="CheckThree(item)"/>
+        <span class='rate'>4</span><input type="checkbox" v-model="item.four" v-on:click="CheckFour(item)"/>
+        <span class='rate'>5</span><input type="checkbox" v-model="item.five" v-on:click="CheckFive(item)"/>{{item.text}}
+        <!--<label v-bind:class="{ completed: item.completed }">{{ item.text }} Rating: {{ item.rating }}
+        <input type='text' v-model="message" v-on:keyup.enter="addComment(item,message)"/>-->
+        <button v-on:click="deleteItem(item)" class="delete">Remove Park From List</button><!--<p v-for='note in item.ratings'>{{note}}</p>--></div>
+    </ul>
+  </div>
     <br><br>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="/wscript.js"></script>
