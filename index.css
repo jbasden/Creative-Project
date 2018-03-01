@@ -162,6 +162,8 @@ textarea {
 
 .button {
   /* To position the buttons to the same position of the text fields */
+  font-family: 'Arvo';
   text-align: center;
   padding:3px;
+  border-radius: 18 px;
 }

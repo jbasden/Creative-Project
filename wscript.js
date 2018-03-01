@@ -47,15 +47,15 @@ var app = new Vue({
   },
   methods: {
     InitParks: function() {
-      var teton = {text: "Grand Teton National Park",one:false,two:false,three:false,four:false,five:false};
-      var yellowstone = {text: "Yellowstone National Park",one:false,two:false,three:false,four:false,five:false};
-      var crater = {text: "Crater Lake National Park",one:false,two:false,three:false,four:false,five:false};
-      var sequoia = {text: "Sequoia National Park",one:false,two:false,three:false,four:false,five:false};
-      var lassen = {text: "Lassen Volcanic National Park",one:false,two:false,three:false,four:false,five:false};
-      var redwood = {text: "Redwood National Park",one:false,two:false,three:false,four:false,five:false};
-      var cascades = {text: "North Cascades National Park",one:false,two:false,three:false,four:false,five:false};
-      var glacier = {text: "Glacier National Park",one:false,two:false,three:false,four:false,five:false};
-      var arches = {text: "Arches National Park",one:false,two:false,three:false,four:false,five:false};
+      var teton = {text: "Grand Teton National Park",one:false,two:false,three:false,four:true,five:false};
+      var yellowstone = {text: "Yellowstone National Park",one:false,two:true,three:false,four:false,five:false};
+      var crater = {text: "Crater Lake National Park",one:true,two:false,three:false,four:false,five:false};
+      var sequoia = {text: "Sequoia National Park",one:false,two:false,three:true,four:false,five:false};
+      var lassen = {text: "Lassen Volcanic National Park",one:false,two:false,three:true,four:false,five:false};
+      var redwood = {text: "Redwood National Park",one:false,two:false,three:false,four:true,five:false};
+      var cascades = {text: "North Cascades National Park",one:false,two:false,three:false,four:false,five:true};
+      var glacier = {text: "Glacier National Park",one:false,two:false,three:false,four:false,five:true};
+      var arches = {text: "Arches National Park",one:false,two:false,three:false,four:true,five:false};
       this.parks = [teton,yellowstone,crater,sequoia,lassen,redwood,cascades,glacier,arches];
     },
     CheckOne(item) {

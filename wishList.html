@@ -18,7 +18,7 @@
   </ul>
   <p>This page is a place for you to make some notes to yourself to <br> record which parks you would most like to visit.</p>
   <div id="app">
-    <p>Click <a v-on:click="InitParks()">here</a> to begin with a list of parks found on this website, or enter a park that you would like to visit below.</p>
+    <p>Click <a v-on:click="InitParks()">here</a> to begin with a list of parks found on this website (and my ratings), or enter a park that you would like to visit below.</p>
     <p v-show="filteredparks.length == 0">Add a park below.</p>
     <form v-on:submit.prevent="addItem">
       <input type="text" v-model="message">
@@ -46,7 +46,7 @@
         <span class='rate'>5</span><input type="checkbox" v-model="item.five" v-on:click="CheckFive(item)"/>{{item.text}}
         <!--<label v-bind:class="{ completed: item.completed }">{{ item.text }} Rating: {{ item.rating }}
         <input type='text' v-model="message" v-on:keyup.enter="addComment(item,message)"/>-->
-        <button v-on:click="deleteItem(item)" class="delete">Remove Park From List</button><!--<p v-for='note in item.ratings'>{{note}}</p>--></div>
+        <button v-on:click="deleteItem(item)" class="delete">Remove Park From List</button><!--<p v-for='note in item.ratings'>{{note}}</p>--><br><br></div>
     </ul>
   </div>
     <br><br>
